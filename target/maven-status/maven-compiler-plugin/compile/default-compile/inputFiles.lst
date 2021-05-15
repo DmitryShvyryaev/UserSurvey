@@ -1,0 +1,13 @@
+D:\JavaProjects\UserSurvey\src\main\java\ru\usersurvey\model\Survey.java
+D:\JavaProjects\UserSurvey\src\main\java\ru\usersurvey\repository\UserRepository.java
+D:\JavaProjects\UserSurvey\src\main\java\ru\usersurvey\model\Answer.java
+D:\JavaProjects\UserSurvey\src\main\java\ru\usersurvey\model\AbstractEntity.java
+D:\JavaProjects\UserSurvey\src\main\java\ru\usersurvey\model\QuestionType.java
+D:\JavaProjects\UserSurvey\src\main\java\ru\usersurvey\model\User.java
+D:\JavaProjects\UserSurvey\src\main\java\ru\usersurvey\model\Question.java
+D:\JavaProjects\UserSurvey\src\main\java\ru\usersurvey\repository\AnswerRepository.java
+D:\JavaProjects\UserSurvey\src\main\java\ru\usersurvey\model\SurveyDetails.java
+D:\JavaProjects\UserSurvey\src\main\java\ru\usersurvey\repository\SurveyDetailsRepository.java
+D:\JavaProjects\UserSurvey\src\main\java\ru\usersurvey\repository\SurveyRepository.java
+D:\JavaProjects\UserSurvey\src\main\java\ru\usersurvey\model\Role.java
+D:\JavaProjects\UserSurvey\src\main\java\ru\usersurvey\repository\QuestionRepository.java

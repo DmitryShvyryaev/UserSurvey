@@ -1,0 +1,13 @@
+ru\usersurvey\repository\SurveyDetailsRepository.class
+ru\usersurvey\model\SurveyDetails.class
+ru\usersurvey\repository\AnswerRepository.class
+ru\usersurvey\model\QuestionType.class
+ru\usersurvey\repository\QuestionRepository.class
+ru\usersurvey\repository\UserRepository.class
+ru\usersurvey\model\Survey.class
+ru\usersurvey\model\Answer.class
+ru\usersurvey\repository\SurveyRepository.class
+ru\usersurvey\model\Question.class
+ru\usersurvey\model\User.class
+ru\usersurvey\model\Role.class
+ru\usersurvey\model\AbstractEntity.class

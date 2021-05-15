@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="HSQLDB(Local)">
+  <database-model serializer="dbm" dbms="HSQLDB" family-id="HSQLDB" format-version="4.20">
+    <root id="1">
+      <ServerVersion>2.4.0</ServerVersion>
+    </root>
+    <database id="2" parent="1" name="PUBLIC">
+      <Current>1</Current>
+    </database>
+    <schema id="3" parent="2" name="INFORMATION_SCHEMA"/>
+    <schema id="4" parent="2" name="PUBLIC">
+      <Current>1</Current>
+    </schema>
+    <schema id="5" parent="2" name="SYSTEM_LOBS"/>
+    <table id="6" parent="4" name="ANSWERS"/>
+    <table id="7" parent="4" name="QUESTIONS"/>
+    <table id="8" parent="4" name="QUESTION_OPTIONS"/>
+    <table id="9" parent="4" name="SURVEYS"/>
+    <table id="10" parent="4" name="SURVEY_DETAILS"/>
+    <table id="11" parent="4" name="USERS"/>
+    <table id="12" parent="4" name="USER_ROLES"/>
+    <column id="13" parent="6" name="TEXT">
+      <Position>1</Position>
+      <DataType>VARCHAR(255)|12s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="14" parent="6" name="SURVEY_DETAIL_ID">
+      <Position>2</Position>
+      <DataType>BIGINT|-5s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="15" parent="6" name="QUESTION_ID">
+      <Position>3</Position>
+      <DataType>BIGINT|-5s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="16" parent="7" name="ID">
+      <Position>1</Position>
+      <DataType>BIGINT|-5s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>null</SequenceIdentity>
+    </column>
+    <column id="17" parent="7" name="TEXT">
+      <Position>2</Position>
+      <DataType>VARCHAR(255)|12s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="18" parent="7" name="TYPE">
+      <Position>3</Position>
+      <DataType>VARCHAR(255)|12s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="19" parent="7" name="SURVEY_DETAIL_ID">
+      <Position>4</Position>
+      <DataType>BIGINT|-5s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="20" parent="7" name="SYS_IDX_SYS_PK_10621_10625">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>ID</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="21" parent="7" name="SYS_PK_10621">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>ID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="22" parent="8" name="QUESTION_ID">
+      <Position>1</Position>
+      <DataType>BIGINT|-5s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="23" parent="8" name="OPTION">
+      <Position>2</Position>
+      <DataType>VARCHAR(255)|12s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="24" parent="8" name="SYS_IDX_QUESTION_OPTION_IDX_10635">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>QUESTION_ID
+OPTION</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="25" parent="8" name="SYS_IDX_SYS_FK_10631_10636">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>QUESTION_ID</ColNames>
+    </index>
+    <key id="26" parent="8" name="SYS_IDX_QUESTION_OPTION_IDX_10635">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>QUESTION_ID
+OPTION</ColNames>
+    </key>
+    <foreign-key id="27" parent="8" name="SYS_FK_10631">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>QUESTION_ID</ColNames>
+      <RefTableName>QUESTIONS</RefTableName>
+      <RefKeyName>SYS_PK_10521</RefKeyName>
+      <RefColNames>ID</RefColNames>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <column id="28" parent="9" name="ID">
+      <Position>1</Position>
+      <DataType>BIGINT|-5s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>null</SequenceIdentity>
+    </column>
+    <column id="29" parent="9" name="START_DATE">
+      <Position>2</Position>
+      <DataType>DATE|91s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="30" parent="9" name="END_DATE">
+      <Position>3</Position>
+      <DataType>DATE|91s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="31" parent="9" name="SURVEY_DETAIL_ID">
+      <Position>4</Position>
+      <DataType>BIGINT|-5s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="32" parent="9" name="USER_ID">
+      <Position>5</Position>
+      <DataType>BIGINT|-5s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="33" parent="9" name="SYS_IDX_SYS_PK_10638_10643">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>ID</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="34" parent="9" name="SYS_PK_10638">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>ID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="35" parent="10" name="ID">
+      <Position>1</Position>
+      <DataType>BIGINT|-5s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>null</SequenceIdentity>
+    </column>
+    <column id="36" parent="10" name="DESCRIPTION">
+      <Position>2</Position>
+      <DataType>VARCHAR(255)|12s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="37" parent="10" name="SYS_IDX_SYS_PK_10617_10619">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>ID</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="38" parent="10" name="SYS_PK_10617">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>ID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="39" parent="11" name="ID">
+      <Position>1</Position>
+      <DataType>BIGINT|-5s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>null</SequenceIdentity>
+    </column>
+    <column id="40" parent="11" name="NAME">
+      <Position>2</Position>
+      <DataType>VARCHAR(255)|12s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="41" parent="11" name="PASSWORD">
+      <Position>3</Position>
+      <DataType>VARCHAR(255)|12s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="42" parent="11" name="SYS_IDX_SYS_PK_10602_10605">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>ID</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="43" parent="11" name="USER_NAME_IDX">
+      <ColNames>NAME</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="44" parent="11" name="SYS_PK_10602">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>ID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="45" parent="11" name="USER_NAME_IDX">
+      <ColNames>NAME</ColNames>
+    </key>
+    <column id="46" parent="12" name="USER_ID">
+      <Position>1</Position>
+      <DataType>BIGINT|-5s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="47" parent="12" name="ROLE">
+      <Position>2</Position>
+      <DataType>VARCHAR(255)|12s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="48" parent="12" name="SYS_IDX_USER_ROLES_IDX_10614">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>USER_ID
+ROLE</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="49" parent="12" name="SYS_IDX_SYS_FK_10610_10615">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>USER_ID</ColNames>
+    </index>
+    <key id="50" parent="12" name="SYS_IDX_USER_ROLES_IDX_10614">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>USER_ID
+ROLE</ColNames>
+    </key>
+    <foreign-key id="51" parent="12" name="SYS_FK_10610">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>USER_ID</ColNames>
+      <RefTableName>USERS</RefTableName>
+      <RefKeyName>SYS_PK_10502</RefKeyName>
+      <RefColNames>ID</RefColNames>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+  </database-model>
+</dataSource>
