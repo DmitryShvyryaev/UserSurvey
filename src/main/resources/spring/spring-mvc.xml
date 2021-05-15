@@ -26,4 +26,11 @@
             </bean>
         </mvc:message-converters>
     </mvc:annotation-driven>
+
+    <bean class="springfox.documentation.swagger2.configuration.Swagger2DocumentationConfiguration"/>
+    <mvc:resources order="1" location="classpath:/META-INF/resources/" mapping="/resources/**" />
+    <mvc:resources mapping="swagger-ui.html"
+                   location="classpath:/META-INF/resources/" />
+    <mvc:resources mapping="/webjars/**"
+                   location="classpath:/META-INF/resources/webjars/" />
 </beans>
