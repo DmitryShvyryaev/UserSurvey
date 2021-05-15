@@ -24,7 +24,7 @@
       <DataType>VARCHAR(255)|12s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="14" parent="6" name="SURVEY_DETAIL_ID">
+    <column id="14" parent="6" name="SURVEY_ID">
       <Position>2</Position>
       <DataType>BIGINT|-5s</DataType>
       <NotNull>1</NotNull>
@@ -34,190 +34,249 @@
       <DataType>BIGINT|-5s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="16" parent="7" name="ID">
+    <index id="16" parent="6" name="SYS_IDX_SYS_FK_10320_10326">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>SURVEY_ID</ColNames>
+    </index>
+    <index id="17" parent="6" name="SYS_IDX_SYS_FK_10321_10328">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>QUESTION_ID</ColNames>
+    </index>
+    <foreign-key id="18" parent="6" name="SYS_FK_10320">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>SURVEY_ID</ColNames>
+      <RefTableName>SURVEYS</RefTableName>
+      <RefKeyName>SYS_PK_10303</RefKeyName>
+      <RefColNames>ID</RefColNames>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <foreign-key id="19" parent="6" name="SYS_FK_10321">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>QUESTION_ID</ColNames>
+      <RefTableName>QUESTIONS</RefTableName>
+      <RefKeyName>SYS_PK_10283</RefKeyName>
+      <RefColNames>ID</RefColNames>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <column id="20" parent="7" name="ID">
       <Position>1</Position>
       <DataType>BIGINT|-5s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="17" parent="7" name="TEXT">
+    <column id="21" parent="7" name="TEXT">
       <Position>2</Position>
       <DataType>VARCHAR(255)|12s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="18" parent="7" name="TYPE">
+    <column id="22" parent="7" name="TYPE">
       <Position>3</Position>
       <DataType>VARCHAR(255)|12s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="19" parent="7" name="SURVEY_DETAIL_ID">
+    <column id="23" parent="7" name="SURVEY_DETAIL_ID">
       <Position>4</Position>
       <DataType>BIGINT|-5s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="20" parent="7" name="SYS_IDX_SYS_PK_10621_10625">
+    <index id="24" parent="7" name="SYS_IDX_SYS_PK_10283_10288">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>ID</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="21" parent="7" name="SYS_PK_10621">
+    <index id="25" parent="7" name="SYS_IDX_SYS_FK_10287_10292">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>SURVEY_DETAIL_ID</ColNames>
+    </index>
+    <key id="26" parent="7" name="SYS_PK_10283">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>ID</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="22" parent="8" name="QUESTION_ID">
+    <foreign-key id="27" parent="7" name="SYS_FK_10287">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>SURVEY_DETAIL_ID</ColNames>
+      <RefTableName>SURVEY_DETAILS</RefTableName>
+      <RefKeyName>SYS_PK_10279</RefKeyName>
+      <RefColNames>ID</RefColNames>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <column id="28" parent="8" name="QUESTION_ID">
       <Position>1</Position>
       <DataType>BIGINT|-5s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="23" parent="8" name="OPTION">
+    <column id="29" parent="8" name="OPTION">
       <Position>2</Position>
       <DataType>VARCHAR(255)|12s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="24" parent="8" name="SYS_IDX_QUESTION_OPTION_IDX_10635">
+    <index id="30" parent="8" name="SYS_IDX_QUESTION_OPTION_IDX_10300">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>QUESTION_ID
 OPTION</ColNames>
       <Unique>1</Unique>
     </index>
-    <index id="25" parent="8" name="SYS_IDX_SYS_FK_10631_10636">
+    <index id="31" parent="8" name="SYS_IDX_SYS_FK_10296_10301">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>QUESTION_ID</ColNames>
     </index>
-    <key id="26" parent="8" name="SYS_IDX_QUESTION_OPTION_IDX_10635">
+    <key id="32" parent="8" name="SYS_IDX_QUESTION_OPTION_IDX_10300">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>QUESTION_ID
 OPTION</ColNames>
     </key>
-    <foreign-key id="27" parent="8" name="SYS_FK_10631">
+    <foreign-key id="33" parent="8" name="SYS_FK_10296">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>QUESTION_ID</ColNames>
       <RefTableName>QUESTIONS</RefTableName>
-      <RefKeyName>SYS_PK_10521</RefKeyName>
+      <RefKeyName>SYS_PK_10283</RefKeyName>
       <RefColNames>ID</RefColNames>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <column id="28" parent="9" name="ID">
+    <column id="34" parent="9" name="ID">
       <Position>1</Position>
       <DataType>BIGINT|-5s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="29" parent="9" name="START_DATE">
+    <column id="35" parent="9" name="START_DATE">
       <Position>2</Position>
       <DataType>DATE|91s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="30" parent="9" name="END_DATE">
+    <column id="36" parent="9" name="END_DATE">
       <Position>3</Position>
       <DataType>DATE|91s</DataType>
-      <NotNull>1</NotNull>
     </column>
-    <column id="31" parent="9" name="SURVEY_DETAIL_ID">
+    <column id="37" parent="9" name="SURVEY_DETAIL_ID">
       <Position>4</Position>
       <DataType>BIGINT|-5s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="32" parent="9" name="USER_ID">
+    <column id="38" parent="9" name="USER_ID">
       <Position>5</Position>
       <DataType>BIGINT|-5s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="33" parent="9" name="SYS_IDX_SYS_PK_10638_10643">
+    <index id="39" parent="9" name="SYS_IDX_SYS_PK_10303_10309">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>ID</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="34" parent="9" name="SYS_PK_10638">
+    <index id="40" parent="9" name="SYS_IDX_SYS_FK_10307_10313">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>SURVEY_DETAIL_ID</ColNames>
+    </index>
+    <index id="41" parent="9" name="SYS_IDX_SYS_FK_10308_10315">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>USER_ID</ColNames>
+    </index>
+    <key id="42" parent="9" name="SYS_PK_10303">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>ID</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="35" parent="10" name="ID">
+    <foreign-key id="43" parent="9" name="SYS_FK_10307">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>SURVEY_DETAIL_ID</ColNames>
+      <RefTableName>SURVEY_DETAILS</RefTableName>
+      <RefKeyName>SYS_PK_10279</RefKeyName>
+      <RefColNames>ID</RefColNames>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <foreign-key id="44" parent="9" name="SYS_FK_10308">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>USER_ID</ColNames>
+      <RefTableName>USERS</RefTableName>
+      <RefKeyName>SYS_PK_10264</RefKeyName>
+      <RefColNames>ID</RefColNames>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <column id="45" parent="10" name="ID">
       <Position>1</Position>
       <DataType>BIGINT|-5s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="36" parent="10" name="DESCRIPTION">
+    <column id="46" parent="10" name="DESCRIPTION">
       <Position>2</Position>
       <DataType>VARCHAR(255)|12s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="37" parent="10" name="SYS_IDX_SYS_PK_10617_10619">
+    <index id="47" parent="10" name="SYS_IDX_SYS_PK_10279_10281">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>ID</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="38" parent="10" name="SYS_PK_10617">
+    <key id="48" parent="10" name="SYS_PK_10279">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>ID</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="39" parent="11" name="ID">
+    <column id="49" parent="11" name="ID">
       <Position>1</Position>
       <DataType>BIGINT|-5s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="40" parent="11" name="NAME">
+    <column id="50" parent="11" name="NAME">
       <Position>2</Position>
       <DataType>VARCHAR(255)|12s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="41" parent="11" name="PASSWORD">
+    <column id="51" parent="11" name="PASSWORD">
       <Position>3</Position>
       <DataType>VARCHAR(255)|12s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="42" parent="11" name="SYS_IDX_SYS_PK_10602_10605">
+    <index id="52" parent="11" name="SYS_IDX_SYS_PK_10264_10267">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>ID</ColNames>
       <Unique>1</Unique>
     </index>
-    <index id="43" parent="11" name="USER_NAME_IDX">
+    <index id="53" parent="11" name="USER_NAME_IDX">
       <ColNames>NAME</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="44" parent="11" name="SYS_PK_10602">
+    <key id="54" parent="11" name="SYS_PK_10264">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>ID</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="45" parent="11" name="USER_NAME_IDX">
+    <key id="55" parent="11" name="USER_NAME_IDX">
       <ColNames>NAME</ColNames>
     </key>
-    <column id="46" parent="12" name="USER_ID">
+    <column id="56" parent="12" name="USER_ID">
       <Position>1</Position>
       <DataType>BIGINT|-5s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="47" parent="12" name="ROLE">
+    <column id="57" parent="12" name="ROLE">
       <Position>2</Position>
       <DataType>VARCHAR(255)|12s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="48" parent="12" name="SYS_IDX_USER_ROLES_IDX_10614">
+    <index id="58" parent="12" name="SYS_IDX_USER_ROLES_IDX_10276">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>USER_ID
 ROLE</ColNames>
       <Unique>1</Unique>
     </index>
-    <index id="49" parent="12" name="SYS_IDX_SYS_FK_10610_10615">
+    <index id="59" parent="12" name="SYS_IDX_SYS_FK_10272_10277">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>USER_ID</ColNames>
     </index>
-    <key id="50" parent="12" name="SYS_IDX_USER_ROLES_IDX_10614">
+    <key id="60" parent="12" name="SYS_IDX_USER_ROLES_IDX_10276">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>USER_ID
 ROLE</ColNames>
     </key>
-    <foreign-key id="51" parent="12" name="SYS_FK_10610">
+    <foreign-key id="61" parent="12" name="SYS_FK_10272">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>USER_ID</ColNames>
       <RefTableName>USERS</RefTableName>
-      <RefKeyName>SYS_PK_10502</RefKeyName>
+      <RefKeyName>SYS_PK_10264</RefKeyName>
       <RefColNames>ID</RefColNames>
       <OnDelete>cascade</OnDelete>
     </foreign-key>

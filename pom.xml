@@ -32,6 +32,10 @@
 
         <!-- Json  -->
         <jackson-json.version>2.12.2</jackson-json.version>
+
+        <!-- Tests  -->
+        <junit.jupiter.version>5.7.1</junit.jupiter.version>
+        <hamcrest.version>2.2</hamcrest.version>
     </properties>
 
     <build>
@@ -91,9 +95,29 @@
             <artifactId>spring-data-jpa</artifactId>
             <version>${spring-data-jpa.version}</version>
         </dependency>
+
+        <!--Test-->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <version>${junit.jupiter.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.hamcrest</groupId>
+            <artifactId>hamcrest-core</artifactId>
+            <version>${hamcrest.version}</version>
+            <scope>test</scope>
+        </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-test</artifactId>
+            <version>${spring.security.version}</version>
             <scope>test</scope>
         </dependency>
 

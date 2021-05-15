@@ -1,0 +1,49 @@
+DELETE
+FROM ANSWERS;
+DELETE
+FROM QUESTION_OPTIONS;
+DELETE
+FROM QUESTIONS;
+DELETE
+FROM SURVEYS;
+DELETE
+FROM SURVEY_DETAILS;
+DELETE
+FROM USER_ROLES;
+DELETE
+FROM USERS;
+ALTER SEQUENCE global_seq RESTART WITH 100000;
+
+INSERT INTO USERS (name, password)
+VALUES ('user', '{noop}user'),
+       ('admin', '{noop}admin');
+
+INSERT INTO USER_ROLES (role, user_id)
+VALUES ('USER', 100000),
+       ('ADMIN', 100001),
+       ('USER', 100001);
+
+INSERT INTO SURVEY_DETAILS (DESCRIPTION)
+VALUES ('Опрос о личном'),
+       ('Опрос о работе');
+
+INSERT INTO QUESTIONS (TEXT, TYPE, SURVEY_DETAIL_ID)
+VALUES ('Где вы живете?', 'TEXT_ANSWER', 100002),
+       ('Сколько вам лет?', 'TEXT_ANSWER', 100002),
+       ('Трудовой стаж?', 'TEXT_ANSWER', 100003),
+       ('Желаемая зарплата?', 'ONE_OPTION_ANSWER', 100003);
+
+INSERT INTO QUESTION_OPTIONS (QUESTION_ID, OPTION)
+VALUES (100007, '3 000 долларов'),
+       (100007, '10 000 долларов'),
+       (100007, '50 000 долларов');
+
+INSERT INTO SURVEYS (START_DATE, END_DATE, SURVEY_DETAIL_ID, USER_ID)
+VALUES ('2021-5-15', '2021-5-16', 100002, 100000),
+       ('2021-5-16', '2021-5-17', 100003, 100000);
+
+INSERT INTO ANSWERS (TEXT, SURVEY_ID, QUESTION_ID)
+VALUES ('город-герой Москва', 100008, 100004),
+       ('30', 100008, 100005),
+       ('6 лет', 100009, 100006),
+       ('50 000 долларов', 100009, 100007);
