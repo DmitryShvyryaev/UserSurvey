@@ -1,10 +1,12 @@
 package ru.usersSurvey.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import org.hibernate.annotations.BatchSize;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
+import java.util.EnumSet;
 import java.util.List;
 import java.util.Set;
 
@@ -30,6 +32,7 @@ public class Question extends AbstractEntity {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "survey_detail_id", nullable = false)
     @OnDelete(action = OnDeleteAction.CASCADE)
+    @JsonBackReference
     private SurveyDetails surveyDetails;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "question")
@@ -38,12 +41,16 @@ public class Question extends AbstractEntity {
     public Question() {
     }
 
-    public Question(String text, QuestionType type, Set<String> options, SurveyDetails surveyDetails, List<Answer> answers) {
+    public Question(String text, QuestionType type) {
         this.text = text;
         this.type = type;
-        this.options = options;
-        this.surveyDetails = surveyDetails;
-        this.answers = answers;
+    }
+
+    public Question(long id, String text, QuestionType type, String... options) {
+        this.id = id;
+        this.text = text;
+        this.type = type;
+        this.options = Set.of(options);
     }
 
     public String getText() {

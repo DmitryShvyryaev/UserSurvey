@@ -7,6 +7,8 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.transaction.annotation.Transactional;
 import ru.usersSurvey.model.Question;
 
+import java.util.List;
+
 @Transactional(readOnly = true)
 public interface QuestionRepository extends JpaRepository<Question, Long> {
 
@@ -14,4 +16,8 @@ public interface QuestionRepository extends JpaRepository<Question, Long> {
     @Transactional
     @Query("DELETE FROM Question q WHERE q.id=:id AND q.surveyDetails.id=:surveyId")
     void delete(@Param("id") long id, @Param("surveyId") long surveyId);
+
+    List<Question> findAllBySurveyDetailsId(long id);
+
+    Question findByIdAndSurveyDetailsId(long id, long surveyId);
 }

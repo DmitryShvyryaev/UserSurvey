@@ -1,5 +1,7 @@
 package ru.usersSurvey.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -10,6 +12,7 @@ public class SurveyDetails extends AbstractEntity {
     @Column(name = "description", nullable = false)
     private String description;
 
+    @JsonManagedReference
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "surveyDetails")
     private List<Question> questions;
 
@@ -19,6 +22,12 @@ public class SurveyDetails extends AbstractEntity {
     public SurveyDetails() {}
 
     public SurveyDetails(String description, List<Question> questions) {
+        this.description = description;
+        this.questions = questions;
+    }
+
+    public SurveyDetails(long id, String description, List<Question> questions) {
+        this.id = id;
         this.description = description;
         this.questions = questions;
     }

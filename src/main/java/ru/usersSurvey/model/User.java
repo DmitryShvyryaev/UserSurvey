@@ -5,6 +5,7 @@ import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
+import java.util.EnumSet;
 import java.util.List;
 import java.util.Set;
 
@@ -33,10 +34,10 @@ public class User extends AbstractEntity {
 
     public User() {}
 
-    public User(String name, String password, Set<Role> roles) {
+    public User(String name, String password, Role role, Role... roles) {
         this.name = name;
         this.password = password;
-        this.roles = roles;
+        this.roles = EnumSet.of(role, roles);
     }
 
     public String getName() {

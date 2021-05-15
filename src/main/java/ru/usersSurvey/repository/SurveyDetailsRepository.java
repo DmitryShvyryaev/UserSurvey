@@ -11,8 +11,9 @@ import java.util.List;
 @Transactional(readOnly = true)
 public interface SurveyDetailsRepository extends JpaRepository<SurveyDetails, Long> {
 
-    @EntityGraph(attributePaths = {"questions"})
+    @EntityGraph(attributePaths = {"questions"}, type = EntityGraph.EntityGraphType.LOAD)
     @Query("SELECT DISTINCT s FROM SurveyDetails s LEFT OUTER JOIN s.questions")
     List<SurveyDetails> findAllWithQuestions();
 
+    SurveyDetails findById(long id);
 }

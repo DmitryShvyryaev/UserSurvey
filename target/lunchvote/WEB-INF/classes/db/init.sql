@@ -1,11 +1,10 @@
 DROP TABLE user_roles IF EXISTS;
 DROP TABLE answers IF EXISTS;
-DROP TABLE question_options IF EXISTS;
-DROP TABLE survey_details IF EXISTS;
-DROP TABLE answers IF EXISTS;
-DROP TABLE questions IF EXISTS;
-DROP TABLE users IF EXISTS;
 DROP TABLE surveys IF EXISTS;
+DROP TABLE question_options IF EXISTS;
+DROP TABLE questions IF EXISTS;
+DROP TABLE survey_details IF EXISTS;
+DROP TABLE users IF EXISTS;
 
 DROP SEQUENCE global_seq IF EXISTS;
 
