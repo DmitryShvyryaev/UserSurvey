@@ -17,6 +17,11 @@ public class UserSurveyTo {
         this.id = id;
     }
 
+    public UserSurveyTo(Long id, AnsweredQuestionTo... answers) {
+        this.id = id;
+        this.answers = List.of(answers);
+    }
+
     public static UserSurveyTo getFromSurvey(Survey survey) {
         UserSurveyTo to = new UserSurveyTo(survey.getId());
         to.answers = survey.getSurveyDetails().getQuestions().stream()

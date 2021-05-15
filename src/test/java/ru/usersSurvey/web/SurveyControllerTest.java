@@ -3,17 +3,20 @@ package ru.usersSurvey.web;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
-import ru.usersSurvey.repository.AnswerRepository;
+import ru.usersSurvey.model.Question;
+import ru.usersSurvey.model.QuestionType;
+import ru.usersSurvey.to.AnsweredQuestionTo;
 import ru.usersSurvey.to.StartSurveyTo;
+import ru.usersSurvey.to.UserSurveyTo;
 import ru.usersSurvey.web.json.JacksonObjectMapper;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 class SurveyControllerTest extends AbstractControllerTest {
 
@@ -22,7 +25,7 @@ class SurveyControllerTest extends AbstractControllerTest {
 
     @Test
     void getAllCompleted() throws Exception {
-        perform(get("/rest/surveys/100000"))
+        perform(get("/rest/surveys?userId=100000"))
                 .andDo(print())
                 .andExpect(status().isOk())
                 .andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON))
@@ -41,5 +44,21 @@ class SurveyControllerTest extends AbstractControllerTest {
         assertEquals("{\"id\":100014,\"answers\":[{\"question\":{\"id\":100004,\"text\":\"Где вы живете?\",\"type\":\"TEXT_ANSWER\",\"options\":[],\"answers\":null}},{\"question\":{\"id\":100005,\"text\":\"Сколько вам лет?\",\"type\":\"TEXT_ANSWER\",\"options\":[],\"answers\":null}}]}", actual);
     }
 
+    @Test
+    void update() throws Exception {
+        StartSurveyTo newSurvey = new StartSurveyTo(100001L, 100002L);
+        perform(post("/rest/surveys")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(objectMapper.writeValueAsString(newSurvey)));
 
+        AnsweredQuestionTo question1 = new AnsweredQuestionTo(new Question(100004, "Где вы живете?", QuestionType.TEXT_ANSWER), "Санкт-Петербург");
+        AnsweredQuestionTo question2 = new AnsweredQuestionTo(new Question(100005, "Сколько вам лет?", QuestionType.TEXT_ANSWER), "78");
+        UserSurveyTo updated = new UserSurveyTo(100014L, question1, question2);
+
+        perform(put("/rest/surveys/100014")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(objectMapper.writeValueAsString(updated)))
+                .andDo(print())
+                .andExpect(status().isNoContent());
+    }
 }

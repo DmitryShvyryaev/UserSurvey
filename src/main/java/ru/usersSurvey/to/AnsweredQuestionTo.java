@@ -15,6 +15,11 @@ public class AnsweredQuestionTo {
         this.question = question;
     }
 
+    public AnsweredQuestionTo(Question question, String... answers) {
+        this.question = question;
+        this.answers = List.of(answers);
+    }
+
     public Question getQuestion() {
         return question;
     }
