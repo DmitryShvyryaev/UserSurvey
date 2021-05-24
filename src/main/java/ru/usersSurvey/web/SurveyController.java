@@ -69,7 +69,7 @@ public class SurveyController {
     @Transactional
     @PutMapping(value = "/{id}", consumes = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public UserSurveyTo update(@PathVariable long id, @RequestBody UserSurveyTo to) {
+    public void update(@PathVariable long id, @RequestBody UserSurveyTo to) {
         logger.info("Update survey {} with id {}", to, id);
         checkCompleteSurvey(id);
         saveIfComplete(to);
@@ -82,10 +82,6 @@ public class SurveyController {
                 }
             }
         }
-        Survey resultSurvey = surveyRepository.getById(to.getId());
-        UserSurveyTo userSurveyTo = UserSurveyTo.getFromSurvey(resultSurvey);
-        userSurveyTo.setAnswers(getAnswers(resultSurvey.getId()));
-        return userSurveyTo;
     }
 
     private Map<Long, List<String>> getAnswers(long surveyId) {

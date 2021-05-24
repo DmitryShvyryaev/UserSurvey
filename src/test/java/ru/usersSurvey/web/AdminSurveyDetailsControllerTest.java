@@ -39,7 +39,7 @@ class AdminSurveyDetailsControllerTest extends AbstractControllerTest {
                 .andExpect(status().isCreated())
                 .andReturn().getResponse().getContentAsString();
 
-        assertEquals(created, "{\"id\":100010,\"description\":\"Новый опрос\"}");
+        assertEquals("{\"id\":100014,\"description\":\"Новый опрос\"}", created);
     }
 
     @Test

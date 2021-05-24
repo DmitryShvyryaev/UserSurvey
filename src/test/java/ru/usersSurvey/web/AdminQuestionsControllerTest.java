@@ -48,7 +48,7 @@ class AdminQuestionsControllerTest extends AbstractControllerTest {
                 .andExpect(status().isCreated())
                 .andReturn().getResponse().getContentAsString();
 
-        assertEquals("{\"id\":100010,\"text\":\"А что за вопрос?\",\"type\":\"TEXT_ANSWER\"}", created);
+        assertEquals("{\"id\":100014,\"text\":\"А что за вопрос?\",\"type\":\"TEXT_ANSWER\"}", created);
     }
 
     @Test
