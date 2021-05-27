@@ -40,7 +40,7 @@
     </properties>
 
     <build>
-        <finalName>lunchvote</finalName>
+        <finalName>users-survey</finalName>
         <defaultGoal>package</defaultGoal>
         <plugins>
             <plugin>
